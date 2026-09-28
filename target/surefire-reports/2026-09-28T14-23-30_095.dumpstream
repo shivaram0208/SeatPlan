@@ -1,0 +1,5 @@
+# Created at 2026-09-28T14:23:34.639
+Boot Manifest-JAR contains absolute paths in classpath 'D:\COLLEGE\IntelliJ IDE\SeatPlan-Exam-Hall-Seating-Arrangement-Generator\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeatPlan — Exam Hall Seating</title>
+    <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header class="topbar">
+    <div>
+        <h1>SeatPlan</h1>
+        <p>Exam Hall Seating Arrangement Generator</p>
+    </div>
+    <button class="secondary" onclick="loadAll()">Refresh</button>
+</header>
+
+<main class="container">
+    <div id="message" class="message hidden"></div>
+
+    <section class="stats">
+        <div class="stat"><span id="studentCount">0</span><small>Students</small></div>
+        <div class="stat"><span id="hallCount">0</span><small>Halls</small></div>
+        <div class="stat"><span id="examCount">0</span><small>Exams</small></div>
+        <div class="stat"><span id="assignmentCount">0</span><small>Assignments</small></div>
+    </section>
+
+    <nav class="tabs">
+        <button class="tab active" data-tab="students">Students</button>
+        <button class="tab" data-tab="halls">Halls</button>
+        <button class="tab" data-tab="exams">Exams</button>
+        <button class="tab" data-tab="generate">Generate Seating</button>
+        <button class="tab" data-tab="view">View Plan</button>
+    </nav>
+
+    <section id="students" class="panel active">
+        <div class="panel-head"><h2>Students</h2><button onclick="resetStudentForm()">New Student</button></div>
+        <form id="studentForm" class="form-grid">
+            <input type="hidden" id="studentId">
+            <label>Register Number<input id="regNo" required maxlength="30"></label>
+            <label>Student Name<input id="studentName" required maxlength="100"></label>
+            <label>Class / Section<input id="studentSection" placeholder="e.g. CSE-A" required maxlength="40"></label>
+            <div class="form-actions"><button type="submit">Save Student</button><button type="button" class="secondary" onclick="resetStudentForm()">Clear</button></div>
+        </form>
+        <div class="table-wrap"><table><thead><tr><th>Register No.</th><th>Name</th><th>Class/Section</th><th>Actions</th></tr></thead><tbody id="studentsTable"></tbody></table></div>
+    </section>
+
+    <section id="halls" class="panel">
+        <div class="panel-head"><h2>Exam Halls</h2><button onclick="resetHallForm()">New Hall</button></div>
+        <form id="hallForm" class="form-grid">
+            <input type="hidden" id="hallId">
+            <label>Hall Name<input id="hallName" required maxlength="80" placeholder="Hall A"></label>
+            <label>Rows<input id="hallRows" type="number" min="1" max="100" required></label>
+            <label>Columns<input id="hallColumns" type="number" min="1" max="100" required></label>
+            <div class="form-actions"><button type="submit">Save Hall</button><button type="button" class="secondary" onclick="resetHallForm()">Clear</button></div>
+        </form>
+        <div class="table-wrap"><table><thead><tr><th>Hall</th><th>Rows</th><th>Columns</th><th>Capacity</th><th>Actions</th></tr></thead><tbody id="hallsTable"></tbody></table></div>
+    </section>
+
+    <section id="exams" class="panel">
+        <div class="panel-head"><h2>Exams</h2><button onclick="resetExamForm()">New Exam</button></div>
+        <form id="examForm" class="form-grid">
+            <input type="hidden" id="examId">
+            <label>Exam / Subject Name<input id="examName" required maxlength="120" placeholder="Java Programming"></label>
+            <label>Date<input id="examDate" type="date" required></label>
+            <label>Start Time<input id="startTime" type="time" required></label>
+            <label>End Time<input id="endTime" type="time" required></label>
+            <div class="form-actions"><button type="submit">Save Exam</button><button type="button" class="secondary" onclick="resetExamForm()">Clear</button></div>
+        </form>
+        <div class="table-wrap"><table><thead><tr><th>Exam</th><th>Date</th><th>Time</th><th>Actions</th></tr></thead><tbody id="examsTable"></tbody></table></div>
+    </section>
+
+    <section id="generate" class="panel">
+        <div class="panel-head"><h2>Generate Seating Plan</h2></div>
+        <p class="hint">The generator uses left/right/front/back adjacency. Students from the same class/section will not share an adjacent seat when a valid arrangement exists.</p>
+        <form id="generateForm">
+            <label>Exam<select id="generateExam" required></select></label>
+            <fieldset><legend>Select halls</legend><div id="hallChecks" class="checks"></div></fieldset>
+            <button type="submit">Generate Seating Plan</button>
+        </form>
+        <div id="generationSummary" class="summary"></div>
+    </section>
+
+    <section id="view" class="panel">
+        <div class="panel-head"><h2>View Seating Plan</h2><button class="secondary" onclick="window.print()">Print</button></div>
+        <label>Exam<select id="viewExam" onchange="loadPlan()"></select></label>
+        <div id="planOutput" class="plan-output"><p class="hint">Select an exam to view its generated plan.</p></div>
+    </section>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Student {
+  Long id
+  String registerNumber
+  String name
+  String classSection
+}
+
+class Hall {
+  Long id
+  String name
+  int rows
+  int columns
+  int capacity()
+}
+
+class ExamSession {
+  Long id
+  String name
+  LocalDate examDate
+  LocalTime startTime
+  LocalTime endTime
+}
+
+class SeatAssignment {
+  Long id
+  int seatNumber
+  int rowNumber
+  int columnNumber
+}
+
+Student "1" -- "0..*" SeatAssignment
+Hall "1" -- "0..*" SeatAssignment
+ExamSession "1" -- "0..*" SeatAssignment
+
+note right of SeatAssignment
+One student gets one seat
+for one exam.
+Unique:
+(exam, hall, seat)
+(exam, student)
+end note
+@enduml

@@ -1,0 +1,26 @@
+{
+  "students": [
+    {"registerNumber":"22CS001","name":"Arun Kumar","classSection":"CSE-A"},
+    {"registerNumber":"22CS002","name":"Bala Kumar","classSection":"CSE-B"},
+    {"registerNumber":"22CS003","name":"Charan S","classSection":"CSE-C"},
+    {"registerNumber":"22CS004","name":"Divya R","classSection":"CSE-A"},
+    {"registerNumber":"22CS005","name":"Ezhil M","classSection":"CSE-B"},
+    {"registerNumber":"22CS006","name":"Farhan A","classSection":"CSE-C"},
+    {"registerNumber":"22CS007","name":"Gokul P","classSection":"CSE-A"},
+    {"registerNumber":"22CS008","name":"Harini V","classSection":"CSE-B"},
+    {"registerNumber":"22CS009","name":"Ishaan K","classSection":"CSE-C"},
+    {"registerNumber":"22CS010","name":"Jeeva S","classSection":"CSE-A"},
+    {"registerNumber":"22CS011","name":"Kavin R","classSection":"CSE-B"},
+    {"registerNumber":"22CS012","name":"Lavanya P","classSection":"CSE-C"}
+  ],
+  "halls": [
+    {"name":"Hall A","rows":3,"columns":4},
+    {"name":"Hall B","rows":3,"columns":4}
+  ],
+  "exam": {
+    "name":"Java Programming",
+    "examDate":"2026-09-29",
+    "startTime":"09:00",
+    "endTime":"12:00"
+  }
+}
