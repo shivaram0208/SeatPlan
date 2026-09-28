@@ -16,11 +16,11 @@ Diagonal seats are not treated as adjacent. This definition is documented in the
 
 ## Technology stack
 
-- Java 17
-- Spring Boot 3.4.5
+- Java 21
+- Spring Boot 4.1.1
 - Spring Web / REST
 - Spring Data JPA
-- H2 database for immediate local execution
+- XAMPP Database
 - MySQL support through a second application profile
 - HTML5 + CSS3 + Vanilla JavaScript frontend
 - Maven
